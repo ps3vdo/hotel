@@ -1,4 +1,5 @@
 const db = require('../db');
+
 class PetController {
     async createPet(req, res) {
         const {name, age, id_owner} = req.body;
@@ -30,4 +31,5 @@ class PetController {
         res.json(pet.rows[0])
     }
 }
+
 module.exports = new PetController()
