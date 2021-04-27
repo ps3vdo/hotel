@@ -1,6 +1,6 @@
 const express = require("express");
 const router = require("./router/index");
-const config = require("config");
+const config = require("./config");
 
 const app = express();
 const PORT = config.APP_PORT || 5000;
