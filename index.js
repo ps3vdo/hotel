@@ -1,10 +1,11 @@
+require('dotenv').config();
 const express = require('express');
-const ownerRouter = require('./router/owner.router');
-const PORT = process.env.PORT || 8080;
+const router = require('./router/index');
+const PORT = process.env.PORT || 5000;
 const app = express();
 app.use(express.json())
-app.use('/api', ownerRouter);
+app.use('/api', router);
 
 app.listen(PORT, function () {
-  console.log('%s listening at %s', app.name, app.url);
+console.log(`Server started on port ${PORT}`);
 });

@@ -7,10 +7,4 @@ router.get('/owner/:id', ownerController.getOneOwner);
 router.put('/owner', ownerController.updateOwner);
 router.delete('/owner/:id', ownerController.deleteOwner);
 
-
-
-
-
-
-
 module.exports = router

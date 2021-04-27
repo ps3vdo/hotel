@@ -7,7 +7,6 @@ class OwnerController {
             [first_name, last_name, surname, phone_number, number_series_passport]);
         res.json(newOwner.rows[0]);
     };
-
     async getOwners(req, res) {
         const owners = await db.query('SELECT * FROM owner');
         res.json(owners.rows)
@@ -30,5 +29,4 @@ class OwnerController {
         res.json(owner.rows[0])
     }
 }
-
 module.exports = new OwnerController()

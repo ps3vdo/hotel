@@ -4,8 +4,9 @@ class PetController {
         const {name, age, id_owner} = req.body;
         const newPet = await db.query(
             'INSERT INTO pets (name, age, id_owner) values ($1, $2, $3) RETURNING *', ///привязка только к владельцу
-            [name, age]);
+            [name, age, id_owner]);
         res.json(newPet.rows[0]);
+        console.log(newPet.rows)
     };
     async getPet(req, res) {
         const pets = await db.query('SELECT * FROM pets');

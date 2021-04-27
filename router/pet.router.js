@@ -2,7 +2,7 @@ const Router = require('express');
 const router = new Router();
 const petController = require('../controller/pet.controller');
 router.post('/pet', petController.createPet);
-router.get('/pet', petController.getPets);
+router.get('/pet', petController.getPet);
 router.get('/pet/:id', petController.getOnePet);
 router.put('/pet', petController.updatePet);
 router.delete('/pet/:id', petController.deletePet);
