@@ -1,6 +1,8 @@
 const Router = require('express');
-const router = new Router();
 const petController = require('../controller/pet.controller');
+
+const router = new Router();
+
 router.post('/pet', petController.createPet);
 router.get('/pet', petController.getPet);
 router.get('/pet/:id', petController.getOnePet);

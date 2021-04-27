@@ -1,6 +1,8 @@
 const Router = require('express');
-const router = new Router();
 const ownerController = require('../controller/owner.controller');
+
+const router = new Router();
+
 router.post('/owner', ownerController.createOwner);
 router.get('/owner', ownerController.getOwners);
 router.get('/owner/:id', ownerController.getOneOwner);

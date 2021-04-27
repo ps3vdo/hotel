@@ -1,4 +1,5 @@
 const db = require('../db');
+
 class OwnerController {
     async createOwner(req, res) {
         const { first_name, last_name, surname, phone_number, number_series_passport } = req.body;
@@ -29,4 +30,5 @@ class OwnerController {
         res.json(owner.rows[0])
     }
 }
+
 module.exports = new OwnerController()
