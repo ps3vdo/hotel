@@ -5,7 +5,7 @@ class StaffController {
     async createStaff(req, res) {
         const { role, first_name, last_name, surname } = req.body;
         const newStaff = await db.query(
-            'INSERT INTO staff (role, first_name, last_name, surname) values ($1, $2, $3, $4) RETURNING *', ///привязка только к владельцу
+            'INSERT INTO staff (role, first_name, last_name, surname) values ($1, $2, $3, $4) RETURNING *',
             [role, first_name, last_name, surname]);
         res.json(newStaff.rows[0]);
     };
