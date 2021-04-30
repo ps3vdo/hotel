@@ -9,6 +9,6 @@ const router = new Router();
 router.use('/', ownerRouter);
 router.use('/', petRouter);
 router.use('/', staffRouter);
-router.use('/reg', registration);
+router.use('/', registration);
 
 module.exports = router;
