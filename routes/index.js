@@ -1,8 +1,8 @@
 const Router = require('express');
-const ownerRouter = require('./owner.router');
-const petRouter = require('./pet.router');
-const staffRouter = require('./staff.router');
-const registration = require('./router.registration');
+const ownerRouter = require('./owner.routes');
+const petRouter = require('./pet.routes');
+const staffRouter = require('./staff.routes');
+const registration = require('./registration.routes');
 
 const router = new Router();
 

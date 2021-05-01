@@ -9,6 +9,7 @@ const config = {
   PG_PORT: env.DB_PORT,
   PG_DB_NAME: env.DB_NAME,
   APP_PORT: env.PORT,
+  SECRET: env.SECRET
 };
 
 module.exports = Object.freeze(config);
