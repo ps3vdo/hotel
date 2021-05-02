@@ -44,7 +44,7 @@ class authController {
         }
 		else return res.status(400).send(badRequest('Role unknown, please select your role '));
     }
-	
+
 	async authorization(req, res) {
 		const {phone_number, password} = req.body;
 		const phoneNumberOwnerSQL = await db.query('SELECT FROM owner where phone_number = $1', [phone_number])
@@ -55,7 +55,8 @@ class authController {
                 return res.status(400).send(badRequest('Phone number is not registered'));
             }
         }
-		const {salt, hash_password, id, role = 'owner'} =
+
+		const {salt, hash_password, id, role = 'owner'} =//todo staff auth
             (await db.query('SELECT * FROM owner where phone_number = $1', [phone_number])).rows[0];
         const validPassword = crypto.pbkdf2Sync(password, Buffer.from(salt, "hex"), 10000, 64, "sha512")
             .toString("hex");
@@ -63,7 +64,7 @@ class authController {
 			return res.status(400).send(badRequest('Password is bad'));
 		}
 		const token = generateAccessToken(id, role);
-		return res.json({token});			
+		return res.json({token});
 	}
 }
 
