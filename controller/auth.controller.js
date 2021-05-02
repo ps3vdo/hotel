@@ -1,8 +1,7 @@
 const db = require('../db');
 const crypto = require("crypto");
-const generateAccessToken = require('../function/generateAccessToken');
+const generateAccessToken = require('../function/token');
 
-//const generateToken = require('../tokenAuth')
 
 const roles = ["staff", "admin", "doctor", "hotel_owner"];
 
@@ -44,28 +43,34 @@ class authController {
         }
 		else return res.status(400).send(badRequest('Role unknown, please select your role '));
     }
-
-	async authorization(req, res) {
-		const {phone_number, password} = req.body;
-		const phoneNumberOwnerSQL = await db.query('SELECT FROM owner where phone_number = $1', [phone_number])
+    async authorization(req, res) {
+        try {
+        const {phone_number, password} = req.body;
+        const phoneNumberOwnerSQL = await db.query('SELECT FROM owner where phone_number = $1', [phone_number])
         const phoneNumberStaffSQL = await db.query('SELECT FROM staff where phone_number = $1', [phone_number])
 
-		if (!phoneNumberOwnerSQL.rowCount) {
+        if (!phoneNumberOwnerSQL.rowCount) {
             if (!phoneNumberStaffSQL.rowCount) {
                 return res.status(400).send(badRequest('Phone number is not registered'));
             }
         }
-
-		const {salt, hash_password, id, role = 'owner'} =//todo staff auth
-            (await db.query('SELECT * FROM owner where phone_number = $1', [phone_number])).rows[0];
+        let query
+        if (phoneNumberOwnerSQL.rowCount) query = 'SELECT * FROM owner where phone_number = $1'
+            else query = 'SELECT * FROM owner where phone_number = $1'
+       const {salt, hash_password, id, role = 'owner'} =
+            await db.query(query, [phone_number]).rows[0];
         const validPassword = crypto.pbkdf2Sync(password, Buffer.from(salt, "hex"), 10000, 64, "sha512")
             .toString("hex");
-		if (validPassword !== hash_password) {
-			return res.status(400).send(badRequest('Password is bad'));
-		}
-		const token = generateAccessToken(id, role);
-		return res.json({token});
-	}
+        if (validPassword !== hash_password) {
+            return res.status(400).send(badRequest('Password is bad'));
+        }
+        const token = generateAccessToken(id, role);
+        return res.json({token});
+    } catch(e) {
+        console.log(e.message)
+    }
+    }
+
 }
 
 module.exports = new authController();

@@ -1,6 +1,6 @@
-const accessToken = require('../function/verify')
+const accessToken = require('../function/token')
 
-	module.exports = function(roles) {
+module.exports = function(roles) {
 	return function (req, res, next) {
 
 		if (req.method === 'OPTIONS') {
@@ -10,22 +10,22 @@ const accessToken = require('../function/verify')
 			const token = req.headers.authorization;
 			if (!token) {
 
-				return res.status(403).json({message: "Пользователь не авторизован"});
+				return res.status(403).json({message: "User is not logged in."});
 			}
 			const role = accessToken(req.headers.authorization);
 
 			let hasRole = false;
-				if (roles.includes(role)) {
-					hasRole = true;
-					console.log(role)
-				}
+			if (roles.includes(role)) {
+				hasRole = true;
+				console.log(role)
+			}
 			if (!hasRole) {
-				return res.status(403).json({message: "У Вас нет доступа"});
+				return res.status(403).json({message: "You don't have access."});
 			}
 			next();
 		} catch (e) {
 			console.log(e.message)
-			return res.status(403).json({message: "Ошибка авторизации."});
+			return res.status(403).json({message: "Authorisation Error."});
 		}
 	}
 }
