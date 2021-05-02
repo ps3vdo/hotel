@@ -13,13 +13,12 @@ const accessToken = require('../function/verify')
 				return res.status(403).json({message: "Пользователь не авторизован"});
 			}
 			const role = accessToken(req.headers.authorization);
-			console.log(role)
+
 			let hasRole = false;
-			roles.forEach(role => {
 				if (roles.includes(role)) {
 					hasRole = true;
+					console.log(role)
 				}
-				})
 			if (!hasRole) {
 				return res.status(403).json({message: "У Вас нет доступа"});
 			}
