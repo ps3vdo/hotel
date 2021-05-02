@@ -1,7 +1,7 @@
 const db = require('../db');
 
 class StaffController {
-    
+    //TODO add salt, hashPassword in db
     async createStaff(req, res) {
         const { role, first_name, last_name, surname } = req.body;
         const newStaff = await db.query(

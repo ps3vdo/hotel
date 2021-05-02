@@ -1,5 +1,5 @@
 const db = require('../db');
-
+//TODO change input data
 class OwnerController {
     async createOwner(req, res) {
         const { first_name, last_name, surname, phone_number, number_series_passport } = req.body;
