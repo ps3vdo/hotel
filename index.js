@@ -1,10 +1,13 @@
-const express = require('express');
-const ownerRouter = require('./router/owner.router');
-const PORT = process.env.PORT || 8080;
+const express = require("express");
+const router = require("./routes/index");
+const config = require("./config");
+
 const app = express();
-app.use(express.json())
-app.use('/api', ownerRouter);
+const PORT = config.APP_PORT || 5000;
+
+app.use(express.json());
+app.use("/api", router);
 
 app.listen(PORT, function () {
-  console.log('%s listening at %s', app.name, app.url);
+  console.log(`Server started on port ${PORT}`);
 });
