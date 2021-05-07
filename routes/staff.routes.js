@@ -1,6 +1,6 @@
 const Router = require('express');
 const staffController = require('../controller/staff.controller');
-const roleMiddleware = require('../middlewaree/role.middleware');
+const roleMiddleware = require('../middleware/role.middleware');
 
 const router = new Router();
 
