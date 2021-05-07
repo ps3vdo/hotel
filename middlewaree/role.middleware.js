@@ -1,4 +1,4 @@
-const accessToken = require('../function/token')
+const {verify} = require('../function/token')
 
 module.exports = function(roles) {
 	return function (req, res, next) {
@@ -12,7 +12,7 @@ module.exports = function(roles) {
 
 				return res.status(403).json({message: "User is not logged in."});
 			}
-			const role = accessToken(req.headers.authorization);
+			const role = verify(req.headers.authorization);
 
 			let hasRole = false;
 			if (roles.includes(role)) {
