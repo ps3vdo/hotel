@@ -1,4 +1,5 @@
 const db = require('../db');
+//TODO change input data
 class OwnerController {
     async createOwner(req, res) {
         const { first_name, last_name, surname, phone_number, number_series_passport } = req.body;
@@ -7,7 +8,6 @@ class OwnerController {
             [first_name, last_name, surname, phone_number, number_series_passport]);
         res.json(newOwner.rows[0]);
     };
-
     async getOwners(req, res) {
         const owners = await db.query('SELECT * FROM owner');
         res.json(owners.rows)
