@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cfe356f4-2e02-4219-8e5c-4aeb21b41767" name="Default Changelist" comment="add staff autrorization" />
+    <list default="true" id="cfe356f4-2e02-4219-8e5c-4aeb21b41767" name="Default Changelist" comment="rework">
+      <change afterPath="$PROJECT_DIR$/.idea/hotel.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/error/apiError.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/error.middleware.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,8 +56,12 @@
     <property name="javascript.nodejs.core.library.configured.version" value="14.16.0" />
     <property name="javascript.nodejs.core.library.typings.version" value="14.14.43" />
     <property name="last_opened_file_path" value="$USER_HOME$/.nvm/versions/node/v14.16.0/bin/node" />
+    <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.stylelint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.stylelint" value="" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="$USER_HOME$/.nvm/versions/node/v14.16.0/bin/node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.uml" />
@@ -104,7 +116,8 @@
       <workItem from="1619945056242" duration="4011000" />
       <workItem from="1619954337015" duration="3544000" />
       <workItem from="1619957984304" duration="10110000" />
-      <workItem from="1620403944945" duration="2768000" />
+      <workItem from="1620403944945" duration="3008000" />
+      <workItem from="1620409619018" duration="1554000" />
     </task>
     <task id="LOCAL-00001" summary="work">
       <created>1619813192270</created>
@@ -148,7 +161,21 @@
       <option name="project" value="LOCAL" />
       <updated>1620405863734</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add staff autrorization">
+      <created>1620410489375</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1620410489375</updated>
+    </task>
+    <task id="LOCAL-00008" summary="rework">
+      <created>1620410725331</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1620410725331</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -157,6 +184,36 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="503b17e3-5ffb-4dd0-b85a-48c489835fec">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="false" />
+                </map>
+              </option>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:/media/nikeron/MyDocuments/JS/hotel/function" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State>
@@ -179,6 +236,11 @@
             </State>
           </value>
         </entry>
+      </map>
+    </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="503b17e3-5ffb-4dd0-b85a-48c489835fec" value="TOOL_WINDOW" />
       </map>
     </option>
     <option name="RECENT_FILTERS">
@@ -208,7 +270,8 @@
     <MESSAGE value="work" />
     <MESSAGE value="fix er auth" />
     <MESSAGE value="add staff autrorization" />
-    <option name="LAST_COMMIT_MESSAGE" value="add staff autrorization" />
+    <MESSAGE value="rework" />
+    <option name="LAST_COMMIT_MESSAGE" value="rework" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
