@@ -8,7 +8,7 @@ class PlaceController {
             const newPlace = await db.query(
                 'INSERT INTO place (is_free, date_start, date_end, id_pets) values ($1, $2, $3, $4) RETURNING *',
                 [is_free, date_start, date_end, id_pets]);
-            res.json(newPlace.rows[0]);
+                res.json(newPlace.rows[0]);
             res.send({message:'Place created'});
         } catch (e) {
             console.log(e)

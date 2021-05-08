@@ -1,5 +1,5 @@
 const db = require('../db')
-/////Получить информацию о свободных местах и забронировать.
+/////забронировать.
 class ReservationController {
 
     async reservation(req, res) {
@@ -9,15 +9,7 @@ class ReservationController {
                 [place_id, date_start, date_end, id_owner, phone_number]);
         res.json(reservationAdd.rows[0]);
     }
-    async getFreePlace(req, res) {
-        let arrFreePlace = (await db.query('SELECT * FROM place'));
-        arrFreePlace = JSON.parse(arrFreePlace)
-        res.json(arrFreePlace)
 
-
-
-    }
-//TODO добавить проверку свободных мест
 
 
 }

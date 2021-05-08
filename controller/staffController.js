@@ -1,15 +1,6 @@
 const db = require('../db');
 
 class StaffController {
-    //TODO add salt, hashPassword in db
-    async createStaff(req, res) {
-        const { role, first_name, last_name, surname } = req.body;
-        const newStaff = await db.query(
-            'INSERT INTO staff (role, first_name, last_name, surname) values ($1, $2, $3, $4) RETURNING *',
-            [role, first_name, last_name, surname]);
-        res.json(newStaff.rows[0]);
-    };
-
     async getStaff(req, res) {
         const staff = await db.query('SELECT * FROM staff');
         res.json(staff.rows)

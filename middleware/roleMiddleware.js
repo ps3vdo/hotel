@@ -1,4 +1,5 @@
-const {verify} = require('../function/token')
+const {verify} = require('../function/token');
+const ApiError = require('../error/apiError');
 
 module.exports = function(roles) {
 	return function (req, res, next) {
@@ -10,7 +11,7 @@ module.exports = function(roles) {
 			const token = req.headers.authorization;
 			if (!token) {
 
-				return res.status(403).json({message: "User is not logged in."});
+				return next(ApiError.badRequest("User is not logged in."));
 			}
 			const role = verify(req.headers.authorization);
 
@@ -19,12 +20,12 @@ module.exports = function(roles) {
 				hasRole = true;
 			}
 			if (!hasRole) {
-				return res.status(403).json({message: "You don't have access."});
+				return next(ApiError.badRequest("You don't have access."));
 			}
 			next();
 		} catch (e) {
 			console.log(e.message)
-			return res.status(403).json({message: "Authorisation Error."});
+			return next(ApiError.badRequest("Authorisation Error."));
 		}
 	}
 }
