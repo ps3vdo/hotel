@@ -1,27 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cfe356f4-2e02-4219-8e5c-4aeb21b41767" name="Default Changelist" comment="add function get free place">
-      <change afterPath="$PROJECT_DIR$/function/hashingPassword.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/auth.owner.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/authOwnerController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/auth.staff.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/authStaffController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/owner.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ownerController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/pet.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/petController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/pets.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/petsController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/place.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/placeController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/reservation.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/reservationController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/staff.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/staffController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/error.middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/errorMiddleware.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/role.middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/roleMiddleware.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middlewaree/role.middleware.js" beforeDir="false" />
+    <list default="true" id="cfe356f4-2e02-4219-8e5c-4aeb21b41767" name="Default Changelist" comment="добавлен общий обработчик ошибок">
+      <change afterPath="$PROJECT_DIR$/routes/reservationRouting.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/reservationController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/reservationController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/owner.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/ownerRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/pet.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/petRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/pets.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/petsRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/place.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/placeRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/registration.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/registrationRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/staff.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/staffRoutes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +114,7 @@
       <workItem from="1619957984304" duration="10110000" />
       <workItem from="1620403944945" duration="3008000" />
       <workItem from="1620409619018" duration="4078000" />
-      <workItem from="1620414266440" duration="26406000" />
+      <workItem from="1620414266440" duration="33613000" />
     </task>
     <task id="LOCAL-00001" summary="work">
       <created>1619813192270</created>
@@ -217,7 +200,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620478492584</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="добавлен общий обработчик ошибок">
+      <created>1620490869370</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1620490869370</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -314,7 +304,8 @@
     <MESSAGE value="add staff autrorization" />
     <MESSAGE value="rework" />
     <MESSAGE value="add function get free place" />
-    <option name="LAST_COMMIT_MESSAGE" value="add function get free place" />
+    <MESSAGE value="добавлен общий обработчик ошибок" />
+    <option name="LAST_COMMIT_MESSAGE" value="добавлен общий обработчик ошибок" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
