@@ -1,9 +1,9 @@
 const db = require('../db');
 
-class PetController {
+class PetsController {
     
     async createPet(req, res) {
-        const { name, age, id_owner, staff_id } = req.body;
+        const { name, age, id_owner, staff_id, type } = req.body;
         const newPet = await db.query(
             'INSERT INTO pets (name, age, id_owner, staff_id) values ($1, $2, $3) RETURNING *', ///отсутствует привязка к питанию
             [name, age, id_owner, staff_id]);
@@ -22,11 +22,12 @@ class PetController {
     }
 
     async updatePet(req, res) {
-        const { name, age, id_owner, staff_id, id } = req.body;
+        const { name, age, id_owner, staff_id, id, type } = req.body;
         const pet = await db.query(
-            'UPDATE pets set name = $1, age = $2 where id = $3 RETURNING *',
-            [name, age, id_owner, staff_id, id]);
-        res.json(pet.rows[0]);
+            'UPDATE pets set name = $1, age = $2, id_owner = $3, staff_id = $4 type = $6 where id = $4 RETURNING *',
+            [name, age, id_owner, staff_id, id, type]);
+        console.log(pet.rows[0])
+        res.send({message: "Animal info update"});
     }
 
     async deletePet(req, res) {
@@ -36,4 +37,4 @@ class PetController {
     }
 }
 
-module.exports = new PetController()
+module.exports = new PetsController()

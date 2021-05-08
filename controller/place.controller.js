@@ -3,17 +3,26 @@ const db = require('../db');
 class PlaceController {
     
     async createPlace(req, res) {
-        const {is_free, date_start, date_end, id_pets} = req.body;
-        const newPlace = await db.query(
-            'INSERT INTO place (is_free, date_start, date_end, id_pets) values ($1, $2, $3, $4) RETURNING *', ///привязка только к владельцу
-            [is_free, date_start, date_end, id_pets]);
-        res.json(newPlace.rows[0]);
-        res.send({message:'Place created'});
+        try {
+            const {is_free, date_start, date_end, id_pets} = req.body;
+            const newPlace = await db.query(
+                'INSERT INTO place (is_free, date_start, date_end, id_pets) values ($1, $2, $3, $4) RETURNING *',
+                [is_free, date_start, date_end, id_pets]);
+            res.json(newPlace.rows[0]);
+            res.send({message:'Place created'});
+        } catch (e) {
+            console.log(e)
+        }
+
     };
 
     async getPlace(req, res) {
         const place = await db.query('SELECT * FROM place');
         res.json(place.rows)
+    }
+    async getFreePlace(req, res) {
+        const arrFreePlace = await db.query('SELECT * FROM place where is_free = true');
+        res.json(arrFreePlace.rows)
     }
 
     async getOnePlace(req, res) {

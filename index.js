@@ -1,7 +1,7 @@
 const express = require("express");
 const router = require("./routes/index");
 const config = require("./config");
-const ApiError = require('./error/apiError')
+const ApiError = require('./middleware/error.middleware')
 
 const app = express();
 const PORT = config.APP_PORT || 5000;
