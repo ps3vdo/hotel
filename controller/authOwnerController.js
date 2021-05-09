@@ -28,6 +28,7 @@ class authOwnerController {
             const token = generateAccessToken(id, role)
             return res.json({token});
         } catch (e) {
+            console.log(e)
             return next(ApiError.badRequest(e.message))
         }
     }
@@ -50,6 +51,7 @@ class authOwnerController {
             const token = generateAccessToken(id, role);
             return res.json({token});
         } catch (e) {
+            console.log(e)
             return next(ApiError.badRequest(e.message));
         }
     }

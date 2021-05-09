@@ -4,7 +4,7 @@ const roleMiddleware = require('../middleware/roleMiddleware');
 
 const router = new Router();
 
-router.post('/owner',roleMiddleware(['staff', 'doctor', 'admin']), ownerController.createOwner);
+//router.post('/owner',roleMiddleware(['staff', 'doctor', 'admin']), ownerController.createOwner);
 router.get('/owner', roleMiddleware(['staff', 'doctor', 'admin']), ownerController.getOwners);
 router.get('/owner/:id',roleMiddleware(['staff', 'doctor', 'admin']), ownerController.getOneOwner);
 router.put('/owner',roleMiddleware(['staff', 'doctor', 'admin']), ownerController.updateOwner);

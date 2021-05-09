@@ -5,13 +5,6 @@ const ApiError = require('../error/apiError');
 
 const roles = ["staff", "doctor"];
 
-const badRequest = message => {
-    return {
-        code: "BadRequest",
-        message,
-    }
-}
-
 class authStaffController {
     async createStaff(req, res, next) {
         try {
@@ -37,6 +30,7 @@ class authStaffController {
                 res.send("персонал добавлен");
             } else return res.status(400).send(badRequest('Role unknown, please select your role '));
         } catch (e) {
+            console.log(e)
             return next(ApiError.badRequest(e.message));
         }
     }

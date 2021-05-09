@@ -1,5 +1,6 @@
 const config = require('../config');
 const crypto = require('crypto');
+const ApiError = require('../error/apiError')
 
 const generateAccessToken = (id, role) => {
     const header = {
@@ -26,8 +27,8 @@ const verify = function (token) {
     const {id, role, expires_at} = JSON.parse(decryptString);
     const tokenWithOut = oneString + '.' + twoString;
     const treeString = crypto.createHmac('sha256', config.SECRET).update(tokenWithOut).digest('hex');
-    if(treeString !== verify) throw new Error ("You don't have access");
-    if(expires_at < Date.now()) throw new Error ("Re-authorization required");
+    if(treeString !== verify) return ApiError.forbidden("You don't have access");
+    if(expires_at < Date.now()) return ApiError.forbidden("Re-authorization required");
     return role;
 }
 

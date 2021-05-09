@@ -11,7 +11,7 @@ module.exports = function(roles) {
 			const token = req.headers.authorization;
 			if (!token) {
 
-				return next(ApiError.badRequest("User is not logged in."));
+				return next(ApiError.forbidden("User is not logged in."));
 			}
 			const role = verify(req.headers.authorization);
 
@@ -20,12 +20,12 @@ module.exports = function(roles) {
 				hasRole = true;
 			}
 			if (!hasRole) {
-				return next(ApiError.badRequest("You don't have access."));
+				return next(ApiError.forbidden("You don't have access."));
 			}
 			next();
 		} catch (e) {
 			console.log(e.message)
-			return next(ApiError.badRequest("Authorisation Error."));
+			return next(ApiError.forbidden("Authorisation Error."));
 		}
 	}
 }
