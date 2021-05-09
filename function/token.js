@@ -10,7 +10,7 @@ const generateAccessToken = (id, role) => {
     const payload = {
         id,
         role,
-        expires_at: Date.now() + 60*60*1000
+        expires_at: Date.now() + 60 * 60 * 1000
     }
 
     const oneString = Buffer.from(JSON.stringify(header)).toString("base64");
@@ -24,13 +24,13 @@ const verify = function (token) {
     token = token.split(' ')[1];
     const [oneString, twoString, verify] = token.split('.');
     const decryptString = Buffer.from(twoString, "base64").toString()
-    const {id, role, expires_at} = JSON.parse(decryptString);
+    const { role, expires_at } = JSON.parse(decryptString);
     const tokenWithOut = oneString + '.' + twoString;
     const treeString = crypto.createHmac('sha256', config.SECRET).update(tokenWithOut).digest('hex');
-    if(treeString !== verify) return ApiError.forbidden("You don't have access");
-    if(expires_at < Date.now()) return ApiError.forbidden("Re-authorization required");
+    if (treeString !== verify) return ApiError.forbidden("You don't have access");
+    if (expires_at < Date.now()) return ApiError.forbidden("Re-authorization required");
     return role;
 }
 
-module.exports = {verify, generateAccessToken};
+module.exports = { verify, generateAccessToken };
 //TODO access token renewal

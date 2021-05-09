@@ -1,5 +1,5 @@
 const db = require('../db');
-const {generateAccessToken} = require('../function/token');
+const { generateAccessToken } = require('../function/token');
 const hashingPassword = require('../function/hashingPassword');
 const ApiError = require('../error/apiError');
 
@@ -8,7 +8,7 @@ const roles = ["staff", "doctor"];
 class authStaffController {
     async createStaff(req, res, next) {
         try {
-            const {first_name, last_name = null, surname, phone_number = "", role, password = ""} = req.body;
+            const { first_name, last_name = null, surname, phone_number = "", role, password = "" } = req.body;
 
             if (first_name === "" || surname === "") {
                 return next(ApiError.badRequest('First name or surname is empty'));
@@ -37,21 +37,21 @@ class authStaffController {
 
     async staffAuthorization(req, res, next) {
         try {
-            const {phone_number, password} = req.body;
+            const { phone_number, password } = req.body;
             const phoneNumberStaffSQL = await db.query('SELECT FROM staff where phone_number = $1', [phone_number])
 
             if (!phoneNumberStaffSQL.rowCount) {
                 return next(ApiError.badRequest('Phone number is not registered'));
             }
 
-            const {salt, hash_password, id, role} =
+            const { salt, hash_password, id, role } =
                 (await db.query('SELECT * FROM owner where phone_number = $1', [phone_number])).rows[0];
 
             if (hashingPassword(password, salt) !== hash_password) {
                 return next(ApiError.badRequest('Password is bad'));
             }
             const token = generateAccessToken(id, role);
-            return res.json({token});
+            return res.json({ token });
         } catch (e) {
             console.log(e.message);
             return next(ApiError.badRequest(e.message));

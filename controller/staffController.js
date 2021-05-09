@@ -8,7 +8,7 @@ class StaffController {
         try {
             const staff = await db.query('SELECT * FROM staff');
             res.json(staff.rows);
-        } catch(e) {
+        } catch (e) {
             console.log(e);
             return next(ApiError.badRequest(e.message));
         }
@@ -19,7 +19,7 @@ class StaffController {
             const id = req.params.id;
             const staff = await db.query('SELECT * FROM staff where id = $1', [id]);
             res.json(staff.rows[0]);
-        } catch(e) {
+        } catch (e) {
             console.log(e);
             return next(ApiError.badRequest(e.message));
         }
@@ -32,7 +32,7 @@ class StaffController {
                 'UPDATE staff set role = $1, first_name = $2, last_name = $3, surname = $4 where id = $5 RETURNING *',
                 [role, first_name, last_name, surname, id]);
             res.json(staff.rows[0]);
-        } catch(e) {
+        } catch (e) {
             console.log(e);
             return next(ApiError.badRequest(e.message));
         }
@@ -43,7 +43,7 @@ class StaffController {
             const id = req.params.id;
             const staff = await db.query('DELETE FROM staff where id = $1', [id]);
             res.json(staff.rows[0]);
-        } catch(e) {
+        } catch (e) {
             console.log(e);
             return next(ApiError.badRequest(e.message));
         }

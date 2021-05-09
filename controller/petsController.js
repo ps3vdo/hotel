@@ -10,7 +10,7 @@ class PetsController {
                 'INSERT INTO pets (name, age, id_owner, staff_id) values ($1, $2, $3) RETURNING *', //TODO отсутствует привязка к питанию
                 [name, age, id_owner, staff_id]);
             res.json(newPet.rows[0]);
-        } catch(e) {
+        } catch (e) {
             console.log(e);
             return next(ApiError.badRequest(e.message));
         }
@@ -20,7 +20,7 @@ class PetsController {
         try {
             const pets = await db.query('SELECT * FROM pets');
             res.json(pets.rows);
-        } catch(e) {
+        } catch (e) {
             console.log(e);
             return next(ApiError.badRequest(e.message));
         }
@@ -31,7 +31,7 @@ class PetsController {
             const id = req.params.id;
             const pet = await db.query('SELECT * FROM pets where id = $1', [id]);
             res.json(pet.rows[0]);
-        } catch(e) {
+        } catch (e) {
             console.log(e);
             return next(ApiError.badRequest(e.message));
         }
@@ -44,7 +44,7 @@ class PetsController {
                 'UPDATE pets set name = $1, age = $2 where id = $3 RETURNING *',
                 [name, age, id_owner, staff_id, id]);
             res.json(pet.rows[0]);
-        } catch(e) {
+        } catch (e) {
             console.log(e);
             return next(ApiError.badRequest(e.message));
         }
@@ -55,7 +55,7 @@ class PetsController {
             const id = req.params.id;
             const pet = await db.query('DELETE FROM pets where id = $1', [id]);
             res.json(pet.rows[0]);
-        } catch(e) {
+        } catch (e) {
             console.log(e);
             return next(ApiError.badRequest(e.message));
         }

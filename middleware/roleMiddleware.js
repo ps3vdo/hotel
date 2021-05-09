@@ -1,7 +1,7 @@
-const {verify} = require('../function/token');
+const { verify } = require('../function/token');
 const ApiError = require('../error/apiError');
 
-module.exports = function(roles) {
+module.exports = function (roles) {
 	return function (req, res, next) {
 
 		if (req.method === 'OPTIONS') {

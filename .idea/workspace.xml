@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cfe356f4-2e02-4219-8e5c-4aeb21b41767" name="Default Changelist" comment="добавлено бронирование">
-      <change beforePath="$PROJECT_DIR$/controller/authOwnerController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/authOwnerController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/authStaffController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/authStaffController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/ownerController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ownerController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/petController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/petsController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/petsController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/placeController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/placeController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/staffController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/staffController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/function/token.js" beforeDir="false" afterPath="$PROJECT_DIR$/function/token.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/roleMiddleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/roleMiddleware.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/ownerRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/ownerRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/petRoutes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/petsRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/petsRoutes.js" afterDir="false" />
+    <list default="true" id="cfe356f4-2e02-4219-8e5c-4aeb21b41767" name="Default Changelist" comment="работа с ошибками">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +19,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="work" />
+        <entry key="$PROJECT_DIR$" value="current" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -123,7 +112,7 @@
       <workItem from="1619957984304" duration="10110000" />
       <workItem from="1620403944945" duration="3008000" />
       <workItem from="1620409619018" duration="4078000" />
-      <workItem from="1620414266440" duration="37598000" />
+      <workItem from="1620414266440" duration="38300000" />
     </task>
     <task id="LOCAL-00001" summary="work">
       <created>1619813192270</created>
@@ -230,7 +219,21 @@
       <option name="project" value="LOCAL" />
       <updated>1620538592037</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="работа с ошибками">
+      <created>1620541789832</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1620541789832</updated>
+    </task>
+    <task id="LOCAL-00017" summary="работа с ошибками">
+      <created>1620542135336</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1620542135336</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -329,7 +332,8 @@
     <MESSAGE value="add function get free place" />
     <MESSAGE value="добавлен общий обработчик ошибок" />
     <MESSAGE value="добавлено бронирование" />
-    <option name="LAST_COMMIT_MESSAGE" value="добавлено бронирование" />
+    <MESSAGE value="работа с ошибками" />
+    <option name="LAST_COMMIT_MESSAGE" value="работа с ошибками" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

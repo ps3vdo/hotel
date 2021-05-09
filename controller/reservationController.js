@@ -6,11 +6,11 @@ class ReservationController {
 
     async reservation(req, res, next) {
         try {
-            const {place_id, date_start, date_end, id_owner = "", phone = ""} = req.body;
+            const { place_id, date_start, date_end, id_owner = "", phone = "" } = req.body;
 
-            const {is_free} = (await db.query ('SELECT * FROM place where id = $1', [place_id])).rows[0];
-            const isOwner = (await db.query ('SELECT * FROM owner where id = $1', [id_owner])).rowCount;
-            const isReserved = (await db.query ('SELECT * FROM reservation where place_id = $1', [place_id])).rowCount;
+            const { is_free } = (await db.query('SELECT * FROM place where id = $1', [place_id])).rows[0];
+            const isOwner = (await db.query('SELECT * FROM owner where id = $1', [id_owner])).rowCount;
+            const isReserved = (await db.query('SELECT * FROM reservation where place_id = $1', [place_id])).rowCount;
             console.log(isReserved)
 
             if (!is_free) {
