@@ -1,5 +1,5 @@
 const db = require('../db');
-const crypto = require('crypto')
+const crypto = require('crypto');
 const { generateAccessToken } = require('../function/token');
 const hashingPassword = require('../function/hashingPassword');
 const ApiError = require('../error/apiError');

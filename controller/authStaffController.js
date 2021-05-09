@@ -2,6 +2,7 @@ const db = require('../db');
 const { generateAccessToken } = require('../function/token');
 const hashingPassword = require('../function/hashingPassword');
 const ApiError = require('../error/apiError');
+const crypto = require('crypto');
 
 const roles = ["staff", "doctor"];
 
@@ -25,7 +26,7 @@ class authStaffController {
 
             if (roles.includes(role)) {
                 await db.query(
-                    'INSERT INTO staff (first_name, last_name, surname, role, phone_number, salt, hash_password)values ($1, $2, $3, $4, $5) RETURNING *',
+                    'INSERT INTO staff (first_name, last_name, surname, role, phone_number, salt, hash_password)values ($1, $2, $3, $4, $5, $6, $7) RETURNING *',
                     [first_name, last_name, surname, role, phone_number, salt, hashedPassword]);
                 res.send("персонал добавлен");
             } else return res.status(400).send(badRequest('Role unknown, please select your role '));
@@ -45,7 +46,7 @@ class authStaffController {
             }
 
             const { salt, hash_password, id, role } =
-                (await db.query('SELECT * FROM owner where phone_number = $1', [phone_number])).rows[0];
+                (await db.query('SELECT * FROM staff where phone_number = $1', [phone_number])).rows[0];
 
             if (hashingPassword(password, salt) !== hash_password) {
                 return next(ApiError.badRequest('Password is bad'));
